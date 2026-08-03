@@ -5,13 +5,12 @@ Googleカレンダーの週表示に、学校の1〜7限を薄いガイドとし
 予定を増やさず、いつものGoogleカレンダーを校時表に合わせて見やすくします。
 
 <p align="center">
-  <a href="./launch-motion/out/school-period-promo.mp4">
-    <img src="./launch-motion/out/preview.png" alt="校時レイヤーのデモ動画。校時表の枠からGoogleカレンダーへ予定を追加する場面" width="100%">
-  </a>
+  <img src="./launch-motion/out/demo.gif" alt="校時レイヤーの24秒デモ。校時表の表示、予定追加、設定変更の流れ" width="100%">
 </p>
 
 <p align="center">
-  <strong>▶ <a href="./launch-motion/out/school-period-promo.mp4">24秒のデモ動画を見る（無音）</a></strong>
+  <strong>24秒デモ（無音）</strong><br>
+  <a href="https://raw.githubusercontent.com/nmb1019/school-period-layer/main/launch-motion/out/school-period-promo.mp4">MP4版をダウンロード</a>
 </p>
 
 ## まずはChatGPTに導入を手伝ってもらう
