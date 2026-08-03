@@ -5,12 +5,11 @@ Googleカレンダーの週表示に、学校の1〜7限を薄いガイドとし
 予定を増やさず、いつものGoogleカレンダーを校時表に合わせて見やすくします。
 
 <p align="center">
-  <img src="./launch-motion/out/demo.gif" alt="校時レイヤーの24秒デモ。校時表の表示、予定追加、設定変更の流れ" width="100%">
+  <img src="./assets/demo.gif" alt="校時レイヤーの24秒デモ。校時表の表示、予定追加、設定変更の流れ" width="100%">
 </p>
 
 <p align="center">
-  <strong>24秒デモ（無音）</strong><br>
-  <a href="https://raw.githubusercontent.com/nmb1019/school-period-layer/main/launch-motion/out/school-period-promo.mp4">MP4版をダウンロード</a>
+  <strong>24秒デモ（無音）</strong>
 </p>
 
 ## まずはChatGPTに導入を手伝ってもらう
@@ -108,15 +107,5 @@ Googleカレンダー側の画面構成が変わると、校時表を表示で�
 - `popup.*`：全体ON/OFF、今日・今週だけの一時非表示
 - `options.*`：校時、曜日、休業期間、表示濃さの設定画面
 - `service-worker.js`：初期設定の準備
-- `launch-motion/`：README上部の無音デモ動画を生成するRemotionプロジェクト
-
-### 動画を再生成する
-
-```bash
-cd launch-motion
-npm install
-npm run typecheck
-npm run render
-```
 
 </details>

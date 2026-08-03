@@ -4,7 +4,4 @@
 node_modules/
 **/node_modules/
 
-launch-motion/out/*
-!launch-motion/out/demo.gif
-!launch-motion/out/preview.png
-!launch-motion/out/school-period-promo.mp4
+launch-motion/
