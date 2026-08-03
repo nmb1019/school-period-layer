@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "校時レイヤー",
+  "version": "0.1.3",
+  "description": "Googleカレンダーの週表示に、授業時間の目安を半透明で重ねて表示します。",
+  "permissions": ["storage"],
+  "host_permissions": ["https://calendar.google.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://calendar.google.com/*"],
+      "js": ["shared.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "action": {
+    "default_title": "校時レイヤー",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>校時レイヤーの設定</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">本文へ移動</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div><p class="eyebrow">SCHOOL PERIOD LAYER</p><p class="brand-name">校時レイヤー</p></div>
+        </div>
+        <p class="header-note">Googleカレンダーに予定を作らず、画面上にだけ校時を重ねます。</p>
+      </div>
+    </header>
+
+    <main id="main-content" class="page-shell">
+      <div class="intro-row">
+        <div>
+          <p class="eyebrow">LOCAL SETTINGS</p>
+          <h1>表示を整える</h1>
+          <p class="intro-copy">校時設定はこの端末のChromeにだけ保存されます。予定の内容やカレンダー情報は読み取りません。</p>
+        </div>
+        <div class="save-status" role="status" aria-live="polite" aria-atomic="true"><span class="status-dot" aria-hidden="true"></span><span id="save-status-text">読み込み中…</span></div>
+      </div>
+
+      <form id="settings-form">
+        <section class="settings-section" aria-labelledby="basic-heading">
+          <div class="section-title-row">
+            <div><p class="section-index">01 / BASICS</p><h2 id="basic-heading">基本設定</h2></div>
+            <label class="switch-field"><span>校時レイヤーを表示する</span><input id="enabled-input" type="checkbox"><span class="switch" aria-hidden="true"></span></label>
+          </div>
+          <div class="setting-grid two-columns">
+            <fieldset class="setting-card"><legend>表示する曜日</legend><div id="weekday-options" class="weekday-options"></div><p class="field-help">週表示の日付に合わせて、選択した曜日だけ表示します。</p></fieldset>
+            <label class="setting-card field-label" for="timezone-input"><span class="field-title">タイムゾーン</span><select id="timezone-input" name="timezone"><option value="Asia/Tokyo">Asia/Tokyo（日本標準時）</option><option value="Asia/Seoul">Asia/Seoul</option><option value="Asia/Taipei">Asia/Taipei</option><option value="Asia/Singapore">Asia/Singapore</option><option value="America/Los_Angeles">America/Los_Angeles</option><option value="America/New_York">America/New_York</option><option value="Europe/London">Europe/London</option></select><span class="field-help">予定作成画面へ渡すタイムゾーンです。</span></label>
+          </div>
+        </section>
+
+        <section class="settings-section" aria-labelledby="period-heading">
+          <div class="section-title-row"><div><p class="section-index">02 / TIMETABLE</p><h2 id="period-heading">通常校時</h2></div><span class="section-caption">自動保存</span></div>
+          <div class="table-wrap"><table class="period-table"><thead><tr><th scope="col">使用</th><th scope="col">校時</th><th scope="col">開始</th><th scope="col">終了</th><th scope="col">時間</th><th scope="col"><span class="sr-only">エラー</span></th></tr></thead><tbody id="period-rows"></tbody></table></div>
+          <p class="table-help">時刻は24時間表記です。時刻を変更すると、問題がない場合だけ自動保存します。</p>
+        </section>
+
+        <section class="settings-section" aria-labelledby="holiday-heading">
+          <div class="section-title-row"><div><p class="section-index">03 / BREAKS</p><h2 id="holiday-heading">休業期間</h2></div><button id="add-range-button" class="primary-button" type="button"><span aria-hidden="true">＋</span> 休業期間を追加</button></div>
+          <p class="section-description">開始日と終了日を含む期間は、校時を表示しません。毎年自動では繰り返しません。</p>
+          <div id="range-list" class="range-list"></div><p id="range-empty" class="empty-state">休業期間はまだ登録されていません。</p>
+        </section>
+
+        <section class="settings-section" aria-labelledby="display-heading">
+          <div class="section-title-row"><div><p class="section-index">04 / APPEARANCE</p><h2 id="display-heading">表示設定</h2></div></div>
+          <fieldset class="density-fieldset"><legend>表示の濃さ</legend><div class="density-options"><label><input type="radio" name="density" value="subtle"><span><strong>控えめ</strong><small>数字と薄い境界だけ</small></span></label><label><input type="radio" name="density" value="standard"><span><strong>標準</strong><small>薄い背景＋数字</small></span></label><label><input type="radio" name="density" value="strong"><span><strong>はっきり</strong><small>少し濃い背景＋1限表記</small></span></label></div></fieldset>
+          <div class="check-options"><label><input id="show-time-input" type="checkbox"> マウスを重ねたときに時刻を表示</label><label><input id="auto-theme-input" type="checkbox"> ダークモードに自動対応</label><label><input id="label-style-input" type="checkbox"> 校時番号を「1」ではなく「1限」と表示</label></div>
+        </section>
+      </form>
+
+      <section class="danger-zone" aria-labelledby="reset-heading"><div><h2 id="reset-heading">初期設定に戻す</h2><p>校時・曜日・休業期間・表示設定をすべて初期値へ戻します。</p></div><button id="reset-button" class="outline-button" type="button">初期設定に戻す</button></section>
+    </main>
+
+    <dialog id="range-dialog" aria-labelledby="dialog-heading">
+      <form id="range-form" method="dialog" class="dialog-card">
+        <div class="dialog-heading"><p class="section-index">BREAK PERIOD</p><h2 id="dialog-heading">休業期間を追加</h2></div>
+        <label class="field-label" for="range-name-input"><span class="field-title">休業期間名</span><input id="range-name-input" name="name" type="text" placeholder="例：夏季休業" required></label>
+        <div class="date-fields"><label class="field-label" for="range-start-input"><span class="field-title">開始日</span><input id="range-start-input" name="startDate" type="date" required></label><span class="date-separator" aria-hidden="true">〜</span><label class="field-label" for="range-end-input"><span class="field-title">終了日</span><input id="range-end-input" name="endDate" type="date" required></label></div>
+        <p id="range-form-error" class="form-error" role="alert"></p>
+        <div class="dialog-actions"><button id="cancel-range-button" class="outline-button" type="button">キャンセル</button><button class="primary-button" type="submit">保存</button></div>
+      </form>
+    </dialog>
+
+    <script src="shared.js"></script><script src="options.js"></script>
+  </body>
+</html>

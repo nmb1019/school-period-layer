@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>校時レイヤー</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup-shell">
+      <header class="popup-header">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div>
+          <p class="eyebrow">SCHOOL PERIOD LAYER</p>
+          <h1>校時レイヤー</h1>
+        </div>
+        <label class="switch-label" title="校時レイヤーの表示を切り替え">
+          <span class="sr-only">校時レイヤーを表示</span>
+          <input id="enabled-toggle" type="checkbox">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+      </header>
+
+      <section class="week-card" aria-labelledby="week-heading">
+        <p class="card-kicker">CURRENT WEEK</p>
+        <h2 id="week-heading">週を確認しています…</h2>
+        <p id="week-context" class="muted">Googleカレンダーの週表示でのみ表示されます。</p>
+      </section>
+
+      <section class="quick-actions" aria-labelledby="quick-actions-heading">
+        <div class="section-heading-row">
+          <h2 id="quick-actions-heading">一時的に隠す</h2>
+          <span id="temporary-state" class="state-chip" hidden>設定済み</span>
+        </div>
+        <div class="action-grid">
+          <button id="hide-today" type="button">
+            <span class="action-icon" aria-hidden="true">◷</span>
+            <span><strong>今日だけ</strong><small>当日の校時を隠す</small></span>
+          </button>
+          <button id="hide-week" type="button">
+            <span class="action-icon" aria-hidden="true">▦</span>
+            <span><strong>今週だけ</strong><small>表示中の週を隠す</small></span>
+          </button>
+        </div>
+        <button id="show-again" class="quiet-button" type="button" hidden>一時非表示を解除</button>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite">状態を確認しています…</p>
+
+      <footer class="popup-footer">
+        <button id="open-settings" class="settings-link" type="button">
+          <span aria-hidden="true">⚙</span> 設定を開く
+        </button>
+        <span class="privacy-note">予定の内容は読み取りません</span>
+      </footer>
+    </main>
+    <script src="shared.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
